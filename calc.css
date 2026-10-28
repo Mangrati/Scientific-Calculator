@@ -1,0 +1,51 @@
+:root{
+  --page:#e6eaee; --shell:#1e2b45; --paper:#f4f7fa; --grid:rgba(40,80,150,.14); --axis:rgba(24,50,95,.6);
+  --ink:#18325f; --dim:#6a7fa0; --curve:#e0452a;
+  --num:#f1f4f8; --num-t:#1e2b45; --fn:#34497a; --fn-t:#dbe6ff; --op:#4a6aa8; --op-t:#fff;
+  --clr:#ffd6c6; --clr-t:#8a2c12; --eq:#ff6b3d; --edge:rgba(0,0,0,.28); --tab:#2b3b5e; --tab-t:#a9bbe0;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --page:#0b0f1c; --shell:#141b2f; --paper:#0e2036; --grid:rgba(140,190,255,.13); --axis:rgba(190,220,255,.55);
+    --ink:#d4e8ff; --dim:#7f9fc6; --curve:#ff8a5c; --num:#252f4c; --num-t:#eaf1ff; --fn:#1d2745; --fn-t:#b9cffa;
+    --op:#38538f; --clr:#4a2a20; --clr-t:#ffcfbf; --tab:#1d2745; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --page:#0b0f1c; --shell:#141b2f; --paper:#0e2036; --grid:rgba(140,190,255,.13); --axis:rgba(190,220,255,.55);
+  --ink:#d4e8ff; --dim:#7f9fc6; --curve:#ff8a5c; --num:#252f4c; --num-t:#eaf1ff; --fn:#1d2745; --fn-t:#b9cffa;
+  --op:#38538f; --clr:#4a2a20; --clr-t:#ffcfbf; --tab:#1d2745; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--page);min-height:100%;display:flex;justify-content:center;padding:16px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.shell{width:100%;max-width:400px;background:var(--shell);border-radius:24px;padding:14px;box-shadow:0 20px 44px rgba(0,0,0,.25);align-self:flex-start}
+.tabs{display:flex;gap:6px;margin-bottom:10px}
+.tabs button{flex:1;height:32px;font-size:.85rem;border-radius:9px;background:var(--tab);color:var(--tab-t);box-shadow:none}
+.tabs button[aria-selected="true"]{background:var(--paper);color:var(--ink)}
+.paper{background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:16px 16px;border-radius:12px;color:var(--ink)}
+.disp{padding:12px 14px;min-height:96px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;text-align:right;font-family:"Iowan Old Style",Georgia,serif;margin-bottom:10px}
+.mode{align-self:flex-start;font:.72rem system-ui,sans-serif;color:var(--dim);margin-bottom:auto}
+#ex{font-size:1.7rem;word-break:break-all;line-height:1.2}
+#rs{font-size:1.05rem;color:var(--dim);min-height:1.4em;font-style:italic}
+#rs.err{color:var(--curve)}
+.panel{margin-bottom:10px}
+.panel[hidden]{display:none}
+#cv{display:block;width:100%;height:230px;border-radius:12px;touch-action:pan-y;cursor:crosshair}
+.gbar{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.gbar button,.chip{height:30px;padding:0 10px;font-size:.8rem;border-radius:8px;background:var(--fn);color:var(--fn-t);box-shadow:none;font-family:Georgia,serif;font-style:italic}
+.hist{max-height:230px;overflow:auto;padding:8px;font-family:Georgia,serif}
+.hist button{display:block;width:100%;height:auto;text-align:right;background:none;box-shadow:none;color:var(--ink);padding:6px 4px;border-radius:6px;font-size:.95rem}
+.hist button:hover{background:var(--grid)}
+.hist small{color:var(--dim);display:block;font-style:italic}
+.empty{color:var(--dim);padding:8px;font:.9rem system-ui,sans-serif}
+.keys{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+button{font:inherit;font-size:1.1rem;font-weight:500;border:0;border-radius:11px;height:46px;cursor:pointer;background:var(--num);color:var(--num-t);box-shadow:0 3px 0 var(--edge);transition:transform .06s,box-shadow .06s}
+button:active{transform:translateY(3px);box-shadow:0 0 0 var(--edge)}
+button:focus-visible{outline:3px solid var(--eq);outline-offset:2px}
+.fn{background:var(--fn);color:var(--fn-t);font-family:Georgia,serif;font-style:italic;font-size:1rem}
+.op{background:var(--op);color:var(--op-t)}
+.clr{background:var(--clr);color:var(--clr-t)}
+.eq{grid-column:1/-1;background:var(--eq);color:#fff;height:50px;box-shadow:0 3px 0 #a73c1b}
+@media (prefers-reduced-motion:reduce){button{transition:none}}

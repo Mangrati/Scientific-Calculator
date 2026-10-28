@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scientific Calculator + Grapher</title>
+<link rel="stylesheet" href="calc.css">
+</head>
+<body>
+<main class="shell">
+  <div class="tabs" role="tablist">
+    <button role="tab" data-tab="calc" aria-selected="true">Calculate</button>
+    <button role="tab" data-tab="graph" aria-selected="false">Graph</button>
+    <button role="tab" data-tab="hist" aria-selected="false">History</button>
+  </div>
+  <div class="paper disp" aria-live="polite">
+    <div class="mode" id="mode">DEG</div>
+    <div id="ex">0</div>
+    <div id="rs">&nbsp;</div>
+  </div>
+  <div class="panel" id="pg" hidden>
+    <div class="paper"><canvas id="cv" aria-label="Graph of the expression in x"></canvas></div>
+    <div class="gbar">
+      <button id="zi" aria-label="Zoom in">+</button><button id="zo" aria-label="Zoom out">−</button>
+      <button class="chip" data-f="sin(x)/x">sin(x)/x</button>
+      <button class="chip" data-f="x^2−4">x^2−4</button>
+      <button class="chip" data-f="e^−x^2">e^−x^2</button>
+      <button class="chip" data-f="tan(x)">tan(x)</button>
+    </div>
+  </div>
+  <div class="panel" id="ph" hidden><div class="paper hist" id="hl"></div></div>
+  <div class="keys" id="keys">
+    <button class="fn" data-k="MODE" id="mb">DEG</button>
+    <button class="op" data-k="(">(</button>
+    <button class="op" data-k=")">)</button>
+    <button class="clr" data-k="AC">AC</button>
+    <button class="clr" data-k="DEL" aria-label="Delete">⌫</button>
+
+    <button class="fn" data-k="sin(">sin</button>
+    <button class="fn" data-k="cos(">cos</button>
+    <button class="fn" data-k="tan(">tan</button>
+    <button class="fn" data-k="ln(">ln</button>
+    <button class="fn" data-k="log(">log</button>
+
+    <button class="fn" data-k="asin(">sin⁻¹</button>
+    <button class="fn" data-k="acos(">cos⁻¹</button>
+    <button class="fn" data-k="atan(">tan⁻¹</button>
+    <button class="fn" data-k="√">√</button>
+    <button class="fn" data-k="^">xʸ</button>
+
+    <button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button>
+    <button class="op" data-k="÷">÷</button><button class="fn" data-k="!">n!</button>
+
+    <button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button>
+    <button class="op" data-k="×">×</button><button class="fn" data-k="%">%</button>
+
+    <button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button>
+    <button class="op" data-k="−">−</button><button class="fn" data-k="π">π</button>
+
+    <button data-k="0">0</button><button data-k=".">.</button><button class="fn" data-k="x">x</button>
+    <button class="op" data-k="+">+</button><button class="fn" data-k="e">e</button>
+
+    <button class="eq" data-k="EQ">=</button>
+  </div>
+</main>
+<script src="calc.js"></script>
+</body>
+</html>
